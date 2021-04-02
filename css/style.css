@@ -1,0 +1,26 @@
+html {
+    background: blue;
+}
+
+
+h1 { color: rgb(177, 56, 56);
+    font-size: 3em;
+font-family: gteestipro;}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circle {
+    width: 500px;
+  height: 500px;
+  background: red;
+  border-radius: 50%;
+  margin: 3em;
+}
+svg { width: 100px;
+
+}
