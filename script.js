@@ -14,6 +14,13 @@ base("playlist").select({ maxRecords:100 }).eachPage(gotPageOfSongs, gotAllSongs
 // an empty array to hold our data
 var songs = [];
 
+//colors
+const shuffle = document.querySelector('.shuffle')
+const body = document.querySelector('html')
+const colors = ['#FAE751', '#D84C46', '#87D9DF', '#D570BF', '#77C1A8', '#F6CA5A', '#AE36E7']
+
+
+//
 // callback function that receives our data
 function gotPageOfSongs(records, fetchNextPage) {
   console.log("gotPageOfSongs()");
@@ -34,30 +41,32 @@ function gotAllSongs(err) {
       console.error(error);}
 } 
 
+
 // look through our airtable data, create elements
 function showSongs() {
   console.log("showSongs()");
   songs.forEach(song => {
     // create container for each song
-    var songContainer = document.createElement("div");
+    var songContainer = document.createElement("li");
     songContainer.classList.add("song-container");
-    document.querySelector(".container").append(songContainer);
+    songContainer.classList.add("glide__slide");
+    document.querySelector(".glide__slides").append(songContainer);
 
-    // add song titles
-    var songTitle = document.createElement("h1");
-    songTitle.classList.add("song-title");
-    songTitle.innerText = song.fields.title;
-    songContainer.append(songTitle);
+    // *add song titles*
+   // var songTitle = document.createElement("h1");
+   // songTitle.classList.add("song-title");
+   // songTitle.innerText = song.fields.title;
+   // songContainer.append(songTitle);
 
-    var nameOfArtist = document.createElement("h1");
-    nameOfArtist.classList.add("song-artist");
-    nameOfArtist.innerText = song.fields.artist;
-    songContainer.append(nameOfArtist);
+   // var nameOfArtist = document.createElement("h1");
+   // nameOfArtist.classList.add("song-artist");
+   // nameOfArtist.innerText = song.fields.artist;
+   // songContainer.append(nameOfArtist);
 
-    var songDescription = document.createElement("p");
-    songDescription.classList.add("song-description");
-    songDescription.innerText = song.fields.description;
-    songContainer.append(songDescription);
+   // var songDescription = document.createElement("p");
+  //  songDescription.classList.add("song-description");
+  //  songDescription.innerText = song.fields.description;
+  //  songContainer.append(songDescription); 
 
     var songImage = document.createElement("img");
     songImage.classList.add("song-image");
@@ -65,10 +74,10 @@ function showSongs() {
     songContainer.append(songImage);
     
     // add event listener to add active class to song container
-    songContainer.addEventListener("click", function(event) {
-      songDescription.classList.toggle("active");
-      songImage.classList.toggle("active");
-    });
+    //songContainer.addEventListener("click", function(event) {
+    //  songDescription.classList.toggle("active");
+    //  songImage.classList.toggle("active");
+   // });
   
     // get genre field from airtable
     // loop through the array and add each genre as
@@ -118,4 +127,30 @@ function showSongs() {
     // });
   });
 
+
+  const config = {
+		type: 'carousel',
+		perView: 5,
+	}
+  var carousel =  new Glide('.glide', config).mount();
+  
+  //carousel.go(Math.floor(Math.random()*100))
+
+  document.querySelector('.shuffle').addEventListener('click', function () {
+  var shuffle = (Math.floor(Math.random()*100));
+   carousel.go(`=${shuffle}`)
+  })
+
+// COLOR inspired by https://github.com/JS-Beginners/project_change_color_background/blob/master/js/script.js
+body.style.backgroundColor = 'violet'
+shuffle.addEventListener('click', changeBackground)
+function changeBackground(){
+  const colorIndex= parseInt(Math.random()*colors.length)
+  body.style.backgroundColor = colors[colorIndex]
+  }
 }
+
+
+
+// GLIDE HERE 
+
