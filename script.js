@@ -27,39 +27,12 @@ function gotPageOfSongs(records, fetchNextPage) {
 function gotAllSongs(err) {
     console.log("gotAllSongs()");
 
-   
-
-  // report an error, you'd want to do something better than this in production
-  if (err) {
-    console.log("error loading data");
-    console.error(err);
-    return;
-  }
-
   // call functions to log and show the books
-  consoleLogSongs();
   try {
       showSongs();
   } catch (error) {
-      console.error(error);}}
-
-// just loop through the books and console.log them
-function showSongs() {
-  console.log("showSongs()");
-  songs.forEach((song) => {
-    console.log("Song:", song);
-  });
-}
-
-function gotAllSongs(err) {
-    // checks for errors
-    try {
-      showSongs();
-    } catch (error) {
-      error.log(error);
-    }
-  }
-  
+      console.error(error);}
+} 
 
 // look through our airtable data, create elements
 function showSongs() {
@@ -73,7 +46,7 @@ function showSongs() {
     // add song titles
     var songTitle = document.createElement("h1");
     songTitle.classList.add("song-title");
-    songTitle.innerText = song.fields.song_title;
+    songTitle.innerText = song.fields.title;
     songContainer.append(songTitle);
 
     var nameOfArtist = document.createElement("h1");
@@ -90,59 +63,59 @@ function showSongs() {
     songImage.classList.add("song-image");
     songImage.src = song.fields.image[0].url;
     songContainer.append(songImage);
-
+    
     // add event listener to add active class to song container
     songContainer.addEventListener("click", function(event) {
       songDescription.classList.toggle("active");
       songImage.classList.toggle("active");
     });
-
+  
     // get genre field from airtable
     // loop through the array and add each genre as
     // a class to the song container
-
-    var songGenre = song.fields.genre;
+  
+   var songGenre = song.fields.genre;
     songGenre.forEach(function(genre) {
-      songContainer.classList.add(genre);
-    });
-
+      songContainer.classList.add(genre.replace(' ', '-').toLowerCase());
+     });
+  
     // clicking on filter by pop
     // change background of pop genres to red
     // else change to white
-    var filterPop = document.querySelector(".pop");
-    filterPop.addEventListener("click", function() {
-      if (songContainer.classList.contains("pop")) {
-        songContainer.style.background = "red";
-      } else {
-        songContainer.style.background = "white";
-      }
-    });
-
+    // var filterPop = document.querySelector(".pop");
+    // filterPop.addEventListener("click", function() {
+    //   if (songContainer.classList.contains("pop")) {
+    //     songContainer.style.background = "red";
+    //   } else {
+    //     songContainer.style.background = "white";
+    //   }
+    // });
+  
     // filter by indie music
-    var filterIndie = document.querySelector(".indie");
-    filterIndie.addEventListener("click", function() {
-      if (songContainer.classList.contains("indie")) {
-        songContainer.style.background = "red";
-      } else {
-        songContainer.style.background = "white";
-      }
-    });
+    // var filterIndie = document.querySelector(".indie");
+    // filterIndie.addEventListener("click", function() {
+    //   if (songContainer.classList.contains("indie")) {
+    //     songContainer.style.background = "red";
+    //   } else {
+    //     songContainer.style.background = "white";
+    //   }
+    // });
     
     // filter by shoegaze music
-    var filterShoegaze = document.querySelector(".shoegaze");
-    filterShoegaze.addEventListener("click", function() {
-      if (songContainer.classList.contains("shoegaze")) {
-        songContainer.style.background = "red";
-      } else {
-        songContainer.style.background = "white";
-      }
-    });
-
+    // var filterShoegaze = document.querySelector(".shoegaze");
+    // filterShoegaze.addEventListener("click", function() {
+    //   if (songContainer.classList.contains("shoegaze")) {
+    //     songContainer.style.background = "red";
+    //   } else {
+    //     songContainer.style.background = "white";
+    //   }
+    // });
+  
     // filter reset
-    var filterReset = document.querySelector(".js-reset");
-    filterReset.addEventListener("click", function() {
-      songContainer.style.background = "white";
-    });
+    // var filterReset = document.querySelector(".js-reset");
+    // filterReset.addEventListener("click", function() {
+    //   songContainer.style.background = "white";
+    // });
   });
-}
 
+}
