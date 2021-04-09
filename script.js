@@ -177,6 +177,6 @@ function changeBackground(){
 var audiotrack = ["songlist/flashing.mp3", "songlist/synth.mp3"];
 
 shuffle.onclick = function() {
- const audio= parseInt(Math.random()*audiotrack.length)
- new Audio(audio).play();
+ const audiorandom= parseInt(Math.random()*audiotrack.length)
+ new Audio(audiorandom).play();
 }
