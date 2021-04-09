@@ -17,7 +17,7 @@ var songs = [];
 //colors
 const shuffle = document.querySelector('.shuffle')
 const body = document.querySelector('html')
-const colors = ['#FAE751', '#D84C46', '#87D9DF', '#D570BF', '#77C1A8', '#F6CA5A', '#AE36E7']
+const colors = ['#FAE751', '#D84C46', '#87D9DF', '#D570BF', '#77C1A8', '#F6CA5A', '#AE36E7', '#f8961E']
 
 
 //
@@ -154,3 +154,29 @@ function changeBackground(){
 
 // GLIDE HERE 
 
+
+//MUSIC HERE
+
+
+
+//This will play a random sound
+//function playRandomSound(){
+
+  //An array to house all of the URLs of your sounds
+ // var sounds = [ "https://drive.google.com/file/d/1l7InzlsQyiTm4mH2nbe2OffMJ4Qc8-lp"];
+  
+  //This line will select a random sound to play out of your provided URLS
+ // var soundFile = sounds[Math.floor(Math.random()*sounds.length)];
+  
+  //Find the player element that you created and generate an embed file to play the sound within it
+  //document.getElementById("shuffle").innerHTML="<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+//}
+
+//code found here: https://www.codegrepper.com/code-examples/javascript/javascript+play+sound+onclick
+
+var audiotrack = ["songlist/flashing.mp3", "songlist/synth.mp3"];
+
+shuffle.onclick = function() {
+ const audio= parseInt(Math.random()*audiotrack.length)
+ new Audio(audio).play();
+}

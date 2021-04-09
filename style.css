@@ -1,0 +1,152 @@
+html {
+   
+    background: radial-gradient(circle,#CB93CE 4%,#9CA8DE 66%, #AA80A5 98%);
+    background-size: 300% 300%;
+    animation: change 40s ease-in-out infinite;
+}
+
+/*fonts*/ 
+
+@font-face {
+    font-family: 'lynojean';
+    src: url('../fonts/lynojean-webfont.woff2') format('woff2'),
+         url('../fonts/lynojean-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*fonts end here*/
+
+h1 {
+    font-family: lynojean;
+    font-size: 6em;
+    color: white;
+    /*blur 
+    filter: blur(0.1em); */
+    mix-blend-mode: darken;
+    
+}
+
+/* Text Glow */ 
+.headerwrapper {
+    animation: glow .5s infinite alternate;
+}
+/*Text Glow End*/
+
+/*fonts end here */
+
+/*header*/
+
+.headerwrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*body*/ 
+.bodywrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.moon { 
+	width: 25em;
+	height: 25em;
+	background-color: transparent;
+	border-radius: 50%;
+    box-shadow: 25px 10px 0px 0px #fff;
+    display: inline-block;
+    
+}
+.moon {
+    display: inline-block;
+    margin: 0 0.6em;
+  
+    animation: fadeInDownBig; 
+    animation-duration: 7s; 
+  }
+
+ .sophie {
+    margin: 6.00em;
+
+    max-width: 100%;
+    box-shadow: 1em 1em 3em 1em #EAAAED;
+
+ }
+
+ .sophie {
+     animation: 3s;
+ }
+
+ .sophie:hover {
+     animation: swing;
+     animation-duration: 2s;
+ }
+
+ /* audio styling */
+ audio::-webkit-media-controls-play-button{
+    background-color:pink;}
+audio { margin-top: 14em;}
+
+/*IPHONE*/
+
+@media only screen and (max-width: 50em) {
+    h1 {
+        font-size: 5em;
+    }
+
+    .headerwrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: -1em;
+    }
+    .bodywrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .moon {
+        width: 12.5em;
+        height: 12.5em;
+        margin: 2em;
+    }
+    .sophie {
+        margin: 3em;
+        align-self: center;
+    }
+
+    audio {
+        margin: auto;
+        padding: 3em;
+    }
+
+
+}
+
+/* animation */
+@keyframes change {
+    0% {
+    background-position: 0 50%;
+  }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+  
+      } }
+
+/*glow*/
+    
+@keyframes glow {
+        to {
+            text-shadow: 0 0 6em #380049;
+        }
+    }
+
+
+

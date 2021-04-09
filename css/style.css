@@ -1,3 +1,5 @@
+@import url("hover-min.css");
+
 html {
     background:#EFDC44;
 }
@@ -18,3 +20,57 @@ z-index: 1;
 }
 svg { width: 100px;
 }
+
+svg:hover {
+    fill: black;
+    -webkit-filter: drop-shadow( 4px 3px 2px rgba(0, 0, 0, .7));
+  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    
+}
+
+  
+  /* pule shrink  */
+  @-webkit-keyframes hvr-pulse-shrink {
+    to {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  @keyframes hvr-pulse-shrink {
+    to {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  .hvr-pulse-shrink {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .hvr-pulse-shrink:hover, .hvr-pulse-shrink:focus, .hvr-pulse-shrink:active {
+    -webkit-animation-name: hvr-pulse-shrink;
+    animation-name: hvr-pulse-shrink;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+  }
+
+  /* barcode */
+  
+.barcode {
+mix-blend-mode: overlay;
+margin-top:-100px;
+z-index: 3;
+display: flex;
+align-items: center;
+align-self: center;
+justify-content: center;
+
+}
+ 
