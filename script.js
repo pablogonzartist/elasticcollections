@@ -193,7 +193,7 @@ function changeBackground(){
 
 var lastSong = null;
     var selection = null;
-    var playlist = ["songlist/flashing.mp3", "songlist/godschariots.mp3", "songlist/sonnets.mp3", "songlist/vastness.mp3", "songlist/prayer.mp3", "songlist/waterfrontfrank.mp3"]; // List of songs
+    var playlist = ["songlist/flashing.mp3", "songlist/godschariots.mp3", "songlist/sonnets.mp3", "songlist/vastness.mp3", "songlist/prayer.mp3", "songlist/waterfrontfrank.mp3", "songlist/landslide.mp3", "songlist/nomeconoces.mp3"]; // List of songs
     var player = document.getElementById("audioplayer"); // Get audio element
     player.autoplay=true;
     player.addEventListener("ended", selectRandom); // Run function when the song ends
