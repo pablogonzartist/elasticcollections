@@ -174,9 +174,39 @@ function changeBackground(){
 
 //code found here: https://www.codegrepper.com/code-examples/javascript/javascript+play+sound+onclick
 
-var audiotrack = ["songlist/flashing.mp3", "songlist/synth.mp3"];
+//var audiotrack = ["../songlist/flashing.mp3"];
 
-shuffle.onclick = function() {
- const audiorandom= parseInt(Math.random()*audiotrack.length)
- new Audio(audiorandom).play();
-}
+//shuffle.onclick = function() {
+//const audiorandom= parseInt(Math.random()*audiotrack.length)
+//new Audio(audiorandom).play();
+//}
+
+
+
+//var playlist = ["../songlist/flashing.mp3"];
+//var audioTrack = new Audio(playlist);
+
+//shuffle.onclick = function() {
+// const audiorandom= parseInt(Math.random()*audioTrack.length)
+//  audioTrack.play();
+//}
+
+var lastSong = null;
+    var selection = null;
+    var playlist = ["songlist/flashing.mp3", "songlist/godschariots.mp3", "songlist/sonnets.mp3"]; // List of songs
+    var player = document.getElementById("audioplayer"); // Get audio element
+    player.autoplay=true;
+    player.addEventListener("ended", selectRandom); // Run function when the song ends
+
+    function selectRandom(){
+        while(selection == lastSong){ // Repeat until a different song is selected
+            selection = Math.floor(Math.random() * playlist.length);
+        }
+        lastSong = selection; // Remember the last song
+        player.src = playlist[selection]; // Tell HTML the location of the new song
+    }
+
+  
+    shuffle.onclick = function() {
+      selectRandom(); // Select initial song
+    player.play(); } // Start song 
