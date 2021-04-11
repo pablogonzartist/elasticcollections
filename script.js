@@ -158,42 +158,11 @@ function changeBackground(){
 //MUSIC HERE
 
 
-
-//This will play a random sound
-//function playRandomSound(){
-
-  //An array to house all of the URLs of your sounds
- // var sounds = [ "https://drive.google.com/file/d/1l7InzlsQyiTm4mH2nbe2OffMJ4Qc8-lp"];
-  
-  //This line will select a random sound to play out of your provided URLS
- // var soundFile = sounds[Math.floor(Math.random()*sounds.length)];
-  
-  //Find the player element that you created and generate an embed file to play the sound within it
-  //document.getElementById("shuffle").innerHTML="<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
-//}
-
-//code found here: https://www.codegrepper.com/code-examples/javascript/javascript+play+sound+onclick
-
-//var audiotrack = ["../songlist/flashing.mp3"];
-
-//shuffle.onclick = function() {
-//const audiorandom= parseInt(Math.random()*audiotrack.length)
-//new Audio(audiorandom).play();
-//}
-
-
-
-//var playlist = ["../songlist/flashing.mp3"];
-//var audioTrack = new Audio(playlist);
-
-//shuffle.onclick = function() {
-// const audiorandom= parseInt(Math.random()*audioTrack.length)
-//  audioTrack.play();
-//}
+// code below was aided by https://stackoverflow.com/questions/37635281/playing-random-sounds-continuously-on-the-page
 
 var lastSong = null;
     var selection = null;
-    var playlist = ["songlist/flashing.mp3", "songlist/godschariots.mp3", "songlist/sonnets.mp3", "songlist/vastness.mp3", "songlist/prayer.mp3", "songlist/waterfrontfrank.mp3", "songlist/landslide.mp3", "songlist/nomeconoces.mp3", "songlist/guy.mp3", "songlist/tohaveandnottohold.mp3"]; // List of songs
+    var playlist = ["songlist/flashing.mp3", "songlist/godschariots.mp3", "songlist/sonnets.mp3", "songlist/vastness.mp3", "songlist/prayer.mp3", "songlist/waterfrontfrank.mp3", "songlist/landslide.mp3", "songlist/nomeconoces.mp3", "songlist/guy.mp3", "songlist/tohaveandnottohold.mp3", "songlist/magic.mp3", "songlist/malamente.mp3", "songlist/hastalaraiz.mp3", "songlist/thelessiknowthebetter.mp3", "songlist/goosebumps.mp3", "songlist/galore.mp3", "songlist/lyinghastostop.mp3", "songlist/wutheringheights.mp3", "songlist/runningupthathill.mp3", "songlist/oblivion.mp3", "songlist/belowtheclavicle.mp3", "songlist/spacesong.mp3", "songlist/dyermaker.mp3", "songlist/whenyoudie.mp3", "songlist/alameda.mp3"]; // List of songs
     var player = document.getElementById("audioplayer"); // Get audio element
     player.autoplay=true;
     player.addEventListener("ended", selectRandom); // Run function when the song ends
