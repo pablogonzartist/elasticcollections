@@ -111,10 +111,16 @@ justify-content: center;
 
 @media only screen and (max-width: 50em) {
   html {
-    transform: scale(.85);
-    max-width: 100;
-    height: 100%;
-    margin-top: -5em;
+    transform: scale(.80);
+    max-width: fit-content;
+    height: fit-content;
+    margin-top: -13em;
+  
+  }
+
+  body {
+    max-width: fit-content;
+    margin-bottom: 100px;
   }
 
   .container {
