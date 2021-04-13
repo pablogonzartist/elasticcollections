@@ -108,3 +108,32 @@ justify-content: center;
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 50em) {
+  html {
+    transform: scale(.85);
+    max-width: 100;
+    height: 100%;
+    margin-top: -5em;
+  }
+
+  .container {
+    height: 900px;
+    max-width: 400px;
+  }
+
+  .shuffle {
+    margin-top: 470px;
+  }
+
+  .glide__arrows {
+    margin: -30em;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+  }
+ 
+}
+  
